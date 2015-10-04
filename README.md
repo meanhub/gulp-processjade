@@ -16,7 +16,7 @@ var gulp = require('gulp'),
     opts = { /* plugin options */ };
 
 gulp.task('default', function () {
-    return gulp.src('./*.html')
+    return gulp.src('./*.jade')
                .pipe(processjade(opts))
                .pipe(gulp.dest('dist'));
 });
@@ -24,7 +24,7 @@ gulp.task('default', function () {
 
 ## Example Usage
 
-You might need to change some attributes in your html, when you're releasing
+You might need to change some attributes in your jade, when you're releasing
 for a different environment.
 
 Using this plugin, you can transform this:
