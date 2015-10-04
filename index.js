@@ -10,6 +10,7 @@ function replaceContent(content) {
     var buildJS = false;
     var buildCSS = false;
     var buildRemove = false;
+    var buildReplace = false;
     for(var i= 0, line; line = lines[i]; i++) {
         var matchJS = line.match(/build:js (.+)?/i);
         if(matchJS != null) {
@@ -28,7 +29,13 @@ function replaceContent(content) {
             buildRemove=true;
         }
 
-        if(!buildJS && !buildCSS && !buildRemove) {
+        var matchReplace = line.match(/build:replace (.+)?/i);
+        if(matchReplace != null) {
+            buildReplace=true;
+            result = result + line.match(/^(\s*)\S+/)[1] + "| " + matchReplace[1] + "\n"
+        }
+
+        if(!buildJS && !buildCSS && !buildRemove && !buildReplace) {
             result = result + line;
         }
 
@@ -39,6 +46,8 @@ function replaceContent(content) {
             buildCSS=false;
         } else if(buildRemove && endBuildJS) {
             buildRemove=false;
+        } else if(buildReplace && endBuildJS) {
+            buildReplace=false;
         }
     }
     return result;
