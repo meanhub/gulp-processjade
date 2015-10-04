@@ -1,6 +1,6 @@
 # gulp-processjade
 
-Gulp plugin to process/transform jade files. This is based on similar linees as Adam Timberlake's [gulp-processhtml](https://github.com/Wildhoney/gulp-processhtml)
+Gulp plugin to process/transform jade files. This is based on similar lines as Adam Timberlake's [gulp-processhtml](https://github.com/Wildhoney/gulp-processhtml)
 
 ![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)
 
