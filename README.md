@@ -1,7 +1,5 @@
 # gulp-processjade
 
-UNDER DEVELOPMENT. PLEASE DO NOT USE THIS YET !!
-
 Gulp plugin to process/transform jade files. This is based on similar linees as Adam Timberlake's [gulp-processhtml](https://github.com/Wildhoney/gulp-processhtml)
 
 ![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)
@@ -57,7 +55,7 @@ html
     link(rel='stylesheet', href='style.min.css')
   body
     script(src='app.min.js')
-    |   Goodbye Livereload...
+    | Goodbye Livereload...
 
 ```
 
