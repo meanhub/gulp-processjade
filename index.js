@@ -9,6 +9,7 @@ function replaceContent(content) {
     var result = '';
     var buildJS = false;
     var buildCSS = false;
+    var buildRemove = false;
     for(var i= 0, line; line = lines[i]; i++) {
         var matchJS = line.match(/build:js (.+)?/i);
         if(matchJS != null) {
@@ -22,7 +23,12 @@ function replaceContent(content) {
             result = result + line.match(/^(\s*)\S+/)[1] + "link(rel='stylesheet', href='" + matchCSS[1] + "')\n"
         }
 
-        if(!buildJS && !buildCSS) {
+        var matchRemove = line.match(/build:remove/i);
+        if(matchRemove != null) {
+            buildRemove=true;
+        }
+
+        if(!buildJS && !buildCSS && !buildRemove) {
             result = result + line;
         }
 
@@ -31,6 +37,8 @@ function replaceContent(content) {
             buildJS=false;
         } else if(buildCSS && endBuildJS) {
             buildCSS=false;
+        } else if(buildRemove && endBuildJS) {
+            buildRemove=false;
         }
     }
     return result;
