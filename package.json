@@ -1,6 +1,6 @@
 {
   "name": "gulp-processjade",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Process jade files at build time to modify them as you wish",
   "repository": {
     "type": "git",
