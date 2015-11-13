@@ -6,12 +6,13 @@ const PLUGIN_NAME = 'gulp-processjade';
 
 function replaceContent(content) {
     var lines = content.split('\n');
+    var length = lines.length;
     var result = '';
     var buildJS = false;
     var buildCSS = false;
     var buildRemove = false;
     var buildReplace = false;
-    for(var i = 0; i < lines.length; i++) {
+    for(var i = 0; i < length; i++) {
         var line = lines[i];
         var matchJS = line.match(/build:js (.+)?/i);
         if(matchJS != null) {
