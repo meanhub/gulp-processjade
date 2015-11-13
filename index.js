@@ -6,22 +6,24 @@ const PLUGIN_NAME = 'gulp-processjade';
 
 function replaceContent(content) {
     var lines = content.split('\n');
+    var length = lines.length;
     var result = '';
     var buildJS = false;
     var buildCSS = false;
     var buildRemove = false;
     var buildReplace = false;
-    for(var i= 0, line; line = lines[i]; i++) {
+    for(var i = 0; i < length; i++) {
+        var line = lines[i];
         var matchJS = line.match(/build:js (.+)?/i);
         if(matchJS != null) {
             buildJS=true;
-            result = result + line.match(/^(\s*)\S+/)[1] + "script(type='text/javascript', src='" + matchJS[1] + "')\n"
+            result = result + line.match(/^(\s*)\S+/)[1] + "script(type='text/javascript', src='" + matchJS[1] + "')\n";
         }
 
         var matchCSS = line.match(/build:css (.+)?/i);
         if(matchCSS != null) {
             buildCSS=true;
-            result = result + line.match(/^(\s*)\S+/)[1] + "link(rel='stylesheet', href='" + matchCSS[1] + "')\n"
+            result = result + line.match(/^(\s*)\S+/)[1] + "link(rel='stylesheet', href='" + matchCSS[1] + "')\n";
         }
 
         var matchRemove = line.match(/build:remove/i);
@@ -32,11 +34,11 @@ function replaceContent(content) {
         var matchReplace = line.match(/build:replace (.+)?/i);
         if(matchReplace != null) {
             buildReplace=true;
-            result = result + line.match(/^(\s*)\S+/)[1] + "| " + matchReplace[1] + "\n"
+            result = result + line.match(/^(\s*)\S+/)[1] + "| " + matchReplace[1] + "\n";
         }
 
         if(!buildJS && !buildCSS && !buildRemove && !buildReplace) {
-            result = result + line;
+            result = result + line + '\n';
         }
 
         var endBuildJS = line.match(/^\s*\/\/\s+\/build\s*$/i);
