@@ -1,6 +1,6 @@
 {
   "name": "gulp-processjade",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Process jade files at build time to modify them as you wish",
   "repository": {
     "type": "git",
@@ -33,7 +33,12 @@
   "author": "Souvik Basu <souvikbasu@gmail.com> (http://www.meanhub.com)",
   "contributors": [
     {
-      "name": "Souvik Basu"
+      "name": "Souvik Basu",
+	  "email": "souvikbasu@gmail.com"
+    },
+    {
+      "name": "leaf",
+	  "email": "liuxiaodong1989@gmail.com"
     }
   ],
   "license": "MIT"
